@@ -9,11 +9,11 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         profit = 0
         buy = prices[0]
-        for sell in prices[1:]:
-            if sell > buy:
-                profit = max(profit, sell - buy)
+        for price in prices:
+            if price - buy > 0:
+                profit = max(price - buy, profit)
             else:
-                buy = sell
+                buy = price
         return profit
         
 # @lc code=end
